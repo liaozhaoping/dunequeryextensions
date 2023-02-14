@@ -11,8 +11,20 @@
         .toolbox {
             position: fixed;
             top: 0;
-            width: 100%;
+            left: 0;
             padding: 20px;
+        }
+        .contentWrapper {
+            position: relative;
+            height: 80px;
+            overflow: hidden;
+        }
+        .contentWrapper.showAll {
+            height: unset;
+            overflow: visible;
+        }
+        #content {
+            margin-top: 35px;
         }
         #saveButton {
             display: inline-block;
@@ -23,13 +35,20 @@
             text-align: center;
             border-radius: 4px;
         }
-        #dataWrapper {
+        #dataSummary {
             margin-top: 70px;
         }
         #successTips {
             margin-left: 20px;
             color: aquamarine;
             display: none;
+        }
+        #viewButton {
+            position: absolute;
+            right: 0;
+            top: 0;
+            display: none;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -38,7 +57,12 @@
     <span id="saveButton">Save</span>
     <span id="successTips">Done!</span>
 </div>
-<div id="dataWrapper"></div>
+<div id="dataSummary"></div>
+<div class="contentWrapper">
+    <div id="content"></div>
+    <span id="viewButton">More/Less</span>
+</div>
+
     <script defer src="duneSaverPanel.js" type="module"></script>
 </body>
 </html>
