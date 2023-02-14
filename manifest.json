@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "Dune Saver",
+  "description": "Dune Query Results Saver",
+  "version": "1.0",
+  "devtools_page": "devtools.html",
+  "permissions": [
+    "storage",
+    "downloads",
+    "tabs"
+  ]
+}

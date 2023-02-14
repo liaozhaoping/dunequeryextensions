@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            background-color: rgb(45, 45, 45);
+            color: #ccc;
+        }
+        .toolbox {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px;
+        }
+        #saveButton {
+            display: inline-block;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            padding: 5px 0;
+            width: 100px;
+            text-align: center;
+            border-radius: 4px;
+        }
+        #dataWrapper {
+            margin-top: 70px;
+        }
+        #successTips {
+            margin-left: 20px;
+            color: aquamarine;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="toolbox">
+    <span id="saveButton">Save</span>
+    <span id="successTips">Done!</span>
+</div>
+<div id="dataWrapper"></div>
+    <script defer src="duneSaverPanel.js" type="module"></script>
+</body>
+</html>
