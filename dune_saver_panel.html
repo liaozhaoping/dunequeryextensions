@@ -12,11 +12,14 @@
             position: fixed;
             top: 0;
             left: 0;
+            right: 0;
             padding: 20px;
+            background-color: rgb(45, 45, 45);
+            z-index: 10;
         }
         .contentWrapper {
             position: relative;
-            height: 80px;
+            height: 78px;
             overflow: hidden;
         }
         .contentWrapper.showAll {
@@ -44,9 +47,7 @@
             display: none;
         }
         #viewButton {
-            position: absolute;
-            right: 0;
-            top: 0;
+            float: right;
             display: none;
             cursor: pointer;
         }
@@ -58,9 +59,9 @@
     <span id="successTips">Done!</span>
 </div>
 <div id="dataSummary"></div>
+<span id="viewButton">More/Less</span>
 <div class="contentWrapper">
     <div id="content"></div>
-    <span id="viewButton">More/Less</span>
 </div>
 
     <script defer src="duneSaverPanel.js" type="module"></script>

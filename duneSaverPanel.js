@@ -36,7 +36,7 @@ chrome.storage.onChanged.addListener((changes, area) => {
         `
         content.innerText = JSON.stringify(queryData)
 
-        if (document.getElementById("content").getBoundingClientRect().height > 80) {
+        if (document.getElementById("content").getBoundingClientRect().height > 78) {
             viewButton.style.display = "block"
         } else {
             viewButton.style.display = "none"
