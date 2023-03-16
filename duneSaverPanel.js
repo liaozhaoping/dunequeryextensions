@@ -5,11 +5,30 @@ const saveButton = document.getElementById("saveButton")
 const viewButton = document.getElementById("viewButton")
 const tips = document.getElementById("successTips")
 
+function formatDataForCsv(data) {
+    const dataArr = [data.columns?.join(",")];
+    data?.data?.forEach(d => {
+        const item = data?.columns?.map(key => d[key])
+        dataArr.push(item.join(','))
+    })
+    return dataArr.join('\n');
+}
+
+function getDownloadUrl(text) {
+    const BOM = '\uFEFF';
+    if (window.Blob && window.URL && window.URL.createObjectURL) {
+        const csvData = new Blob([BOM + text], {type: "text/csv"});
+        return URL.createObjectURL(csvData)
+    } else {
+        return "data:attachment/csv;charset=utf-8," + BOM + text
+    }
+}
+
 saveButton.addEventListener("click", () => {
     chrome.storage.local.get("queryData").then((data) => {
         chrome.downloads.download({
-            url: "data:," + JSON.stringify(data.queryData),
-            filename: "dune_query_" + data.queryData?.execution_id || "data",
+            url: getDownloadUrl(formatDataForCsv(data.queryData)),
+            filename: "dune_query_" + (data.queryData?.execution_id || "data") + ".csv",
             conflictAction: "overwrite"
         }, (downloadId) => {
             if (downloadId && tips) {
